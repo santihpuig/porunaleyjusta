@@ -1,13 +1,14 @@
 // Mapa base
 
-var esquinaizq = L.latLng(38.81018, -1.12196);
-var esquinader = L.latLng(38.2212, -0.58911);
+var esquinaizq = L.latLng(49, -24);
+var esquinader = L.latLng(19.371910956881912, 20.200506965230087);
 
 var bounds = L.latLngBounds(esquinaizq, esquinader);
 
 var map = L.map("map", {
   attributionControl: true,
-  fullscreenControl: true /*maxBounds: bounds*/,
+  fullscreenControl: true,
+  maxBounds: bounds,
 }).setView([40.307525593585424, -3.7444288982496907], 6);
 
 var simple = L.tileLayer(
@@ -18,7 +19,6 @@ var simple = L.tileLayer(
     attribution:
       'Map data &copy; <a href="http://openstreetmap.org"> OpenStreetMap</a> contributors, ' +
       '<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
-      'Imagery © <a href="http://mapbox.com">Mapbox</a>' +
-      ' | <a href="http://salvatierravillena.blogspot.com"/>Asociación Salvatierra</a>',
+      'Imagery © <a href="http://mapbox.com">Mapbox</a>',
   }
 ).addTo(map);
