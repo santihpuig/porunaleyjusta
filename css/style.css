@@ -9,16 +9,21 @@ body,
   width: 100vw;
 }
 
-/*b class*/
-
-p,
-b,
 a {
+  color: #c8102e;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 12px;
 }
+
+a:hover {
+  text-decoration: underline;
+}
+
+/*b class*/
 
 .bsi {
   color: #c8102e;
-
   font-size: 12px;
 }
 

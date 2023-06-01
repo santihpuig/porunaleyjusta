@@ -1,19 +1,17 @@
 // Funciones para los popups
 
 function plural(feature) {
-  var cantidad = feature.properties.fallecidos;
-  if (cantidad == 1) {
-    return "<b style='color: #c8102e;font-size: 18px'>ciclista fallecido</b>";
+  if (feature.properties.fallecidos == 1) {
+    return "<b style='color: #c8102e;font-size: 18px'>ciclista fallecido:</b><br>";
   } else {
-    return "<b style='color: #c8102e;font-size: 18px'>ciclistas fallecidos</b>";
+    return "<b style='color: #c8102e;font-size: 18px'>ciclistas fallecidos:</b><br>";
   }
 }
 
 function condAlcohol(feature) {
-  var alcohol = feature.properties.alcohol;
-  if (alcohol === "Sí") {
+  if (feature.properties.alcohol === "Sí") {
     return "<b class='bsi'>Sí</b>";
-  } else if (alcohol === "No") {
+  } else if (feature.properties.alcohol === "No") {
     return "<b class ='bno'>No</b>";
   } else {
     return "<b class ='bdesc'>Se desconoce</b>";
@@ -21,10 +19,9 @@ function condAlcohol(feature) {
 }
 
 function condDroga(feature) {
-  var droga = feature.properties.droga;
-  if (droga === "Sí") {
+  if (feature.properties.droga === "Sí") {
     return "<b class='bsi'>Sí</b>";
-  } else if (droga === "No") {
+  } else if (feature.properties.droga === "No") {
     return "<b class ='bno'>No</b>";
   } else {
     return "<b class ='bdesc'>Se desconoce</b>";
@@ -32,10 +29,9 @@ function condDroga(feature) {
 }
 
 function condHuido(feature) {
-  var huido = feature.properties.huido;
-  if (huido === "Sí") {
+  if (feature.properties.huido === "Sí") {
     return "<b class='bsi'>Sí</b>";
-  } else if (huido === "No") {
+  } else if (feature.properties.huido === "No") {
     return "<b class ='bno'>No</b>";
   } else {
     return "<b class ='bdesc'>Se desconoce</b>";
@@ -43,10 +39,9 @@ function condHuido(feature) {
 }
 
 function condGenero(feature) {
-  var genero = feature.properties.genero;
-  if (genero === "Hombre") {
+  if (feature.properties.genero === "Hombre") {
     return "<b class='bno'>Hombre</b>";
-  } else if (genero === "Mujer") {
+  } else if (feature.properties.genero === "Mujer") {
     return "<b class ='bno'>Mujer</b>";
   } else {
     return "<b class ='bdesc'>Se desconoce</b>";
@@ -80,7 +75,9 @@ function popupPuntos(feature, layer) {
       feature.properties.fallecidos +
       "</b><br>" +
       plural(feature) +
-      "<br><br>Carretera: <b>" +
+      "<b class='bsi'>" +
+      feature.properties.ciclistas +
+      "</b><br><br>Carretera: <b>" +
       feature.properties.carretera +
       " en " +
       feature.properties.municipio +
@@ -94,7 +91,7 @@ function popupPuntos(feature, layer) {
       "</b><br>Día de la semana: <b>" +
       feature.properties.dia_sem +
       "</b><br><br>" +
-      "<b style='color: #c8102e;font-size: 15px'>¿Qué se sabe de la persona que conducía?</b><br><br>" +
+      "<b>¿Qué se sabe de la persona que conducía?</b><br><br>" +
       "<table class='tabla'><thead><tr><th>¿Dio positivo en alcohol?</th><th>¿Dio positivo en otras drogas?</th><th>¿Huyó tras el atropello?</th><th>¿Se le ha identificado como hombre o como mujer?</th></tr></thead><tbody><tr><td>" +
       condAlcohol(feature) +
       "</td><td>" +
@@ -103,7 +100,10 @@ function popupPuntos(feature, layer) {
       condHuido(feature) +
       "</td><td>" +
       condGenero(feature) +
-      " </td></tr></tbody></table>"
+      " </td></tr></tbody></table><br/><a target='_blank' href='" +
+      feature.properties.fuente +
+      "'>Consulta la fuente" +
+      "</a>"
   );
 }
 
