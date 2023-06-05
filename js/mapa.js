@@ -21,6 +21,6 @@ var simple = L.tileLayer(
       'Map data &copy; <a href="http://openstreetmap.org"> OpenStreetMap</a> contributors, ' +
       '<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
       'Imagery © <a href="http://mapbox.com">Mapbox</a> | ' +
-      '<a href="https://santihpuig.com/portfolio/porunaleyjusta/">santihpuig - datos: 2008-2023</a>',
+      '<a href="https://santihpuig.com/portfolio/porunaleyjusta/">santihpuig - datos: 2008-2018</a>',
   }
 ).addTo(map);
