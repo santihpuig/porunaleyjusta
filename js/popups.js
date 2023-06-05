@@ -48,12 +48,12 @@ function condGenero(feature) {
   }
 }
 
-// Estilo
+// Popups
 
 function popupPuntos(feature, layer) {
   layer.on("mouseover", function (e) {
     tooltipPopup = L.popup({
-      // offset: L.point(0, 0),
+      //offset: L.point(0, 0),
       className: "pophover",
     });
     tooltipPopup.setContent(
@@ -79,7 +79,7 @@ function popupPuntos(feature, layer) {
       feature.properties.ciclistas +
       "</b><br><br>Carretera: <b>" +
       feature.properties.carretera +
-      " en " +
+      " </b>a su paso por<b> " +
       feature.properties.municipio +
       ", " +
       feature.properties.provincia +
@@ -102,22 +102,10 @@ function popupPuntos(feature, layer) {
       condGenero(feature) +
       " </td></tr></tbody></table><br/><a target='_blank' href='" +
       feature.properties.fuente +
-      "'>Consulta la fuente" +
-      "</a>"
+      "'>Consulta la fuente</a> | <a href='http://maps.google.com/maps?q=&layer=c&cbll=" +
+      feature.properties.lat +
+      "," +
+      feature.properties.lon +
+      "&cbp=11,0,0,0,0' target='_blank'>Ver en Google Street View</b></a>"
   );
-}
-
-function getSize(d) {
-  return d == 3 ? "7" : d == 2 ? "5" : d == 1 ? "3" : "0";
-}
-
-function estiloPuntos(feature, layer) {
-  return {
-    radius: getSize(feature.properties.fallecidos),
-    fillColor: "#c8102e",
-    color: "#c8102e",
-    weight: 1,
-    opacity: 1,
-    fillOpacity: 0.8,
-  };
 }
