@@ -9,11 +9,8 @@ var map = L.map("map", {
   zoomControl: false,
   // attributionControl: false,
   fullscreenControl: true,
-  fullscreenControlOptions: {
-    position: "topright",
-  },
   maxBounds: bounds,
-}).setView([39, -4], 6);
+}).setView([39.8, -3.7], 6);
 
 var simple = L.tileLayer(
   "https://api.mapbox.com/styles/v1/santihpuig/clibq535d030b01qy5mzqer7h/tiles/256/{z}/{x}/{y}@2x?access_token=pk.eyJ1Ijoic2FudGlocHVpZyIsImEiOiJrYkhOMDVnIn0.ak6qwXtkOps01I5G-LCS_A",

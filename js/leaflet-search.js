@@ -85,7 +85,7 @@
       textCancel: "Cancelar", // title in cancel button
       textPlaceholder: "Buscar municipio", // placeholder value
       hideMarkerOnCollapse: false, // remove circle and marker on search control collapsed
-      position: "topleft",
+      position: "topright",
       marker: {
         // custom L.Marker or false for hide
         icon: false, // custom L.Icon for maker location or false for hide
